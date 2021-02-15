@@ -22,6 +22,6 @@ public class Transaction {
 
     @Override
     public String toString() {
-        return "Transaction made: " + amount + " " + "on: " + date;
+        return "Transaction made: " + amount + ",- " + "on: " + date;
     }
 }

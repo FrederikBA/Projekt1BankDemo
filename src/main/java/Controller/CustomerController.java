@@ -17,6 +17,7 @@ public class CustomerController {
     public void runCustomerMenu() {
         while (choice != 9) {
             ui.showCustomerMenu();
+            System.out.println("\n"+"Current balance: "+ a1.getBalance());
             choice = sc.nextInt();
             switch (choice) {
                 case 1:
@@ -36,7 +37,7 @@ public class CustomerController {
                     }
                     break;
                 case 3:
-                    System.out.println(a1.getBalance());
+                    a1.showAllTransactions();
                     break;
                 default:
                     choice = 9;
