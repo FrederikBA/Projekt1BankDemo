@@ -18,6 +18,7 @@ public class UI implements IUI {
 
     public void showAccountantMenu() {
         System.out.println("1) Add Customer");
+        System.out.println("2) Show all customers");
         System.out.println("9) Go back");
     }
 

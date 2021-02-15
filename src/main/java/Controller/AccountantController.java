@@ -19,6 +19,9 @@ public class AccountantController {
                 case 1:
                     cs.addCustomer();
                     break;
+                case 2:
+                    cs.showAllCustomers();
+                    break;
                 default:
                     choice = 9;
                     break;
