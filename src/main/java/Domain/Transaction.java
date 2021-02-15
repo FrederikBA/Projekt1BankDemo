@@ -3,7 +3,7 @@ package Domain;
 import java.util.Date;
 
 public class Transaction {
-
+    private int id;
     private int amount;
     private Date date;
 
