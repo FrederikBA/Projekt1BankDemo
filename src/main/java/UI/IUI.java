@@ -6,6 +6,8 @@ public interface IUI {
 
     public void showCustomerMenu();
 
+    public void showAccountantMenu();
+
     public void showExitMessage();
 
 }

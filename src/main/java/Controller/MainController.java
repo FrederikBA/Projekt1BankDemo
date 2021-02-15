@@ -10,6 +10,7 @@ public class MainController {
     Scanner sc = new Scanner(System.in);
     IUI ui = new UI();
     CustomerController cc = new CustomerController();
+    AccountantController ac = new AccountantController();
     int choice = 0;
 
     public void runProgram() {
@@ -20,7 +21,9 @@ public class MainController {
                 case 1:
                     cc.runCustomerMenu();
                     break;
-
+                case 2:
+                    ac.runAccountantMenu();
+                    break;
                 default:
                     ui.showExitMessage();
                     choice = 9;
