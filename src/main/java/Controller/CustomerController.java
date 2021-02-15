@@ -11,7 +11,7 @@ public class CustomerController {
     Scanner sc = new Scanner(System.in);
     IUI ui = new UI();
     int choice = 0;
-    Customer c1 = new Customer("John");
+    Customer c1 = new Customer(1, "John");
     Account a1 = new Account(c1);
 
     public void runCustomerMenu() {
