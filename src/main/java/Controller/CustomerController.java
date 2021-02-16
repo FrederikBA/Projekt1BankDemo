@@ -3,6 +3,8 @@ package Controller;
 import Domain.Account;
 import Domain.Customer;
 import Exceptions.BankException;
+import Services.CustomerService;
+import Services.ICustomerService;
 import UI.*;
 
 import java.util.Scanner;
@@ -11,10 +13,16 @@ public class CustomerController {
     Scanner sc = new Scanner(System.in);
     IUI ui = new UI();
     int choice = 0;
-    Customer c1 = new Customer(1, "John");
-    Account a1 = new Account(c1);
+    //Customer c1 = new Customer(1, "John", "John@gmail.com");
+    Customer customer;
+    Account a1 = new Account(customer);
+    ICustomerService cs = new CustomerService();
 
     public void runCustomerMenu() {
+        System.out.println("Enter your email");
+        String email = sc.nextLine();
+        customer = cs.getCustomer(email);
+        System.out.println(customer.getEmail());
         while (choice != 9) {
             System.out.println("\n" + "Current balance: " + a1.getBalance());
             ui.showCustomerMenu();

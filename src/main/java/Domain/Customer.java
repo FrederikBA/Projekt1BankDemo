@@ -3,10 +3,13 @@ package Domain;
 public class Customer {
     private int customerID;
     private String name;
+    private String email;
 
-    public Customer(int customerID, String name) {
+    public Customer(int customerID, String name, String email) {
         this.customerID = customerID;
         this.name = name;
+        this.email = email;
+
     }
 
     public Customer() {
@@ -29,9 +32,17 @@ public class Customer {
         this.name = name;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
-        return customerID + ": " + name;
+        return customerID + ": " + name + ". Email: " + email;
     }
 }
 

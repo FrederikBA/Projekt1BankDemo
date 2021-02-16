@@ -3,7 +3,8 @@ create database ebberoedbank;
 drop table customers;
 create table customers(
 customerID int not null primary key auto_increment,
-customerName varchar(255) not null
+customerName varchar(255) not null,
+customerEmail varchar(255) not null
 );
 
 drop table accounts;
@@ -20,7 +21,7 @@ amount int not null
 
 
 /*INSERT STATEMENTS */
-INSERT INTO customers(customerID,customerName) VALUES (?,?);
+INSERT INTO customers(customerID,customerName,customerEmail) VALUES (?,?,?);
 
 /*SELECT STATEMENTS */
 SELECT * FROM customers;

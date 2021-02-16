@@ -14,4 +14,6 @@ public interface ICustomerService {
 
     public String setCustomerName();
 
+    public Customer getCustomer(String email);
+
 }
