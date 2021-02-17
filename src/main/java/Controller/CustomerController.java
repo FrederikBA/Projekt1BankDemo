@@ -47,9 +47,16 @@ public class CustomerController {
                     }
                     break;
                 case 3:
-                    a1.showAllTransactions();
+                    if (a1.getTransactions().isEmpty()) {
+                        System.out.println("No active transactions");
+                    } else {
+                        a1.showAllTransactions();
+                    }
                     break;
                 case 4:
+                    ts.getPreviousTransactionsByCustomer(customer);
+                    break;
+                case 5:
                     ts.confirmTransaction(a1.getTransactions());
                 default:
                     choice = 9;
