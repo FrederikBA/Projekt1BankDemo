@@ -1,7 +1,5 @@
 package Controller;
 
-import Domain.*;
-import Exceptions.*;
 import UI.*;
 
 import java.util.Scanner;

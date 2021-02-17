@@ -1,13 +1,14 @@
 package Controller;
 
-import Services.CustomerService;
+import Services.*;
 import UI.*;
 
 import java.util.Scanner;
 
 public class AccountantController {
     Scanner sc = new Scanner(System.in);
-    CustomerService cs = new CustomerService();
+    ICustomerService cs = new CustomerService();
+    IAccountService as = new AccountService();
     IUI ui = new UI();
     int choice = 0;
 

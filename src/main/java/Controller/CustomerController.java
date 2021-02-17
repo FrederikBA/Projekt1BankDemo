@@ -3,10 +3,7 @@ package Controller;
 import Domain.Account;
 import Domain.Customer;
 import Exceptions.BankException;
-import Services.CustomerService;
-import Services.ICustomerService;
-import Services.ITransactionService;
-import Services.TransactionService;
+import Services.*;
 import UI.*;
 
 import java.util.Scanner;
@@ -19,6 +16,7 @@ public class CustomerController {
     Account a1 = new Account(customer);
     ICustomerService cs = new CustomerService();
     ITransactionService ts = new TransactionService();
+    IAccountService as = new AccountService();
 
     public void runCustomerMenu() {
         System.out.println("Enter your email");
@@ -26,7 +24,8 @@ public class CustomerController {
         customer = cs.getCustomer(email);
         while (choice != 9) {
             System.out.println("\n" + "Logged in as: " + customer.getName());
-            System.out.println("Current balance: " + a1.getBalance());
+            System.out.println("Balance changes: " + a1.getBalance());
+            System.out.println("Current balance: " + as.getBalanceFromDB(customer));
             ui.showCustomerMenu();
             choice = sc.nextInt();
             switch (choice) {
@@ -58,6 +57,8 @@ public class CustomerController {
                     break;
                 case 5:
                     ts.confirmTransaction(a1.getTransactions());
+                    a1.getTransactions().clear();
+                    break;
                 default:
                     choice = 9;
                     break;

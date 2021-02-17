@@ -13,5 +13,4 @@ public interface ITransactionService {
     public List<Transaction> getAllTransactions();
 
     public void getPreviousTransactionsByCustomer(Customer customer);
-
 }

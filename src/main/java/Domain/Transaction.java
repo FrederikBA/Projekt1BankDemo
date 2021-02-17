@@ -11,8 +11,7 @@ public class Transaction {
     private int amount;
     private String timeStamp;
     private Date date;
-    //  DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-    Calendar cal = Calendar.getInstance();
+    private DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
     public Transaction(int amount, Customer customer, Date date) {
         this.amount = amount;
@@ -29,7 +28,6 @@ public class Transaction {
 
     public String getDateAsString() {
         date = Calendar.getInstance().getTime();
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
         String strDate = dateFormat.format(date);
         return strDate;
     }
@@ -54,8 +52,12 @@ public class Transaction {
         return customer.getCustomerID();
     }
 
+
     @Override
     public String toString() {
+        if (timeStamp == null) {
+            return customer.getName() + ": Transaction made: " + amount + ",- " + "on: " + getDateAsString();
+        }
         return customer.getName() + ": Transaction made: " + amount + ",- " + "on: " + timeStamp;
     }
 }

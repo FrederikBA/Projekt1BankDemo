@@ -8,8 +8,6 @@ import Domain.Transaction;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.text.SimpleDateFormat;
-import java.text.ParseException;
 
 public class TransactionService implements ITransactionService {
     IDBConnector dbc = new DBConnector();

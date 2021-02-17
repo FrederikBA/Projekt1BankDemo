@@ -4,15 +4,20 @@ import Exceptions.*;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+
 
 public class Account {
     private ArrayList<Transaction> transactions;
     private Customer customer;
+    private int accountID;
 
     public Account(Customer customer) {
         this.transactions = new ArrayList<>();
         this.customer = customer;
+    }
+
+    public Account() {
+
     }
 
     public int getBalance() {
@@ -26,14 +31,19 @@ public class Account {
     public int withdrawAmount(int amount, Customer customer) throws BankException {
         if (amount <= 0) {
             throw new BankException("You cannot withdraw a negative value");
-        } else if (amount > getBalance()) {
-            throw new BankException("Insufficient funds on account");
+        } else {
+            transactions.add(new Transaction(-amount, customer, new Date()));
         }
-        transactions.add(new Transaction(-amount, customer, new Date()));
         return getBalance();
     }
 
 
+    /*
+        public int withdrawAmount(int amount, Customer customer) {
+            transactions.add(new Transaction(-amount, customer, new Date()));
+            return getBalance();
+        }
+    */
     public int depositAmount(int amount, Customer customer) throws BankException {
         if (amount <= 0) {
             throw new BankException("You cannot deposit a negative value");
@@ -52,4 +62,7 @@ public class Account {
         return transactions;
     }
 
+    public int getAccountID() {
+        return accountID;
+    }
 }
