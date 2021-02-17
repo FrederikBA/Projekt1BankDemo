@@ -16,4 +16,6 @@ public interface ICustomerService {
 
     public Customer getCustomer(String email);
 
+    public Customer getCustomerByID(int id);
+
 }

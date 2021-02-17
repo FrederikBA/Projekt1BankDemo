@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Account {
-    private List<Transaction> transactions;
+    private ArrayList<Transaction> transactions;
     private Customer customer;
 
     public Account(Customer customer) {
@@ -23,22 +23,22 @@ public class Account {
         return sum;
     }
 
-    public int withdrawAmount(int amount) throws BankException {
+    public int withdrawAmount(int amount, Customer customer) throws BankException {
         if (amount <= 0) {
             throw new BankException("You cannot withdraw a negative value");
         } else if (amount > getBalance()) {
             throw new BankException("Insufficient funds on account");
         }
-        transactions.add(new Transaction(-amount, new Date()));
+        transactions.add(new Transaction(-amount, customer, new Date()));
         return getBalance();
     }
 
 
-    public int depositAmount(int amount) throws BankException {
+    public int depositAmount(int amount, Customer customer) throws BankException {
         if (amount <= 0) {
             throw new BankException("You cannot deposit a negative value");
         }
-        transactions.add(new Transaction(amount, new Date()));
+        transactions.add(new Transaction(amount, customer, new Date()));
         return getBalance();
     }
 
@@ -46,6 +46,10 @@ public class Account {
         for (Transaction t : transactions) {
             System.out.println(t);
         }
+    }
+
+    public ArrayList<Transaction> getTransactions() {
+        return transactions;
     }
 
 }

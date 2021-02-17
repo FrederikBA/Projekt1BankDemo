@@ -13,6 +13,7 @@ public class UI implements IUI {
         System.out.println("1) Deposit amount");
         System.out.println("2) Withdraw amount");
         System.out.println("3) Show transactions");
+        System.out.println("4) Confirm transactions");
         System.out.println("9) Go back");
     }
 

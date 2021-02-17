@@ -28,7 +28,6 @@ public class CustomerService implements ICustomerService {
         PreparedStatement stmt = null;
         ResultSet res = null;
         String sql = "";
-
         sql += "INSERT INTO customers(customerID,customerName,customerEmail) VALUES (?,?,?)";
         connection = dbc.getMyConnection();
         try {
@@ -104,6 +103,17 @@ public class CustomerService implements ICustomerService {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public Customer getCustomerByID(int id) {
+        Customer customer = null;
+        for (Customer c:getAllCustomers()) {
+            if(c.getCustomerID() == id) {
+                return c;
+            }
+        }
+
+        return customer;
     }
 
     public void showAllCustomers() {
